@@ -1,0 +1,500 @@
+PCCCL508
+DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING (CYBER SECURITY), UCE
+
+SYLLABUS
+
+PCCCL508: Network and System Security Lab
+
+1. Preventing PC against latest threats using Windows Defender Firewall
+
+2. Protecting PC using Microsoft Security Essentials*.
+
+3. Steganographic Tools*
+
+4. Website mirroring using HTTrack*
+
+5. Monitoring Live Network capturing packets and analyzing over the live network using Wireshark*
+
+6. Network discovery and security auditing with nmap.*
+
+7. Penetration Testing and Vulnerability Scanning using Burp Suit.
+
+
+==================================================
+EXPERIMENT - 1
+WINDOWS DEFENDER FIREWALL
+==================================================
+
+AIM
+
+To explore the functionality of Windows Defender Firewall and understand how it controls network traffic and protects a Windows system from unauthorized access.
+
+DESCRIPTION
+
+Windows Defender Firewall is a built-in security feature in Windows OS that monitors and regulates incoming and outgoing network traffic based on predefined security rules. This experiment demonstrates how enabling, disabling, and customizing firewall rules affects the behavior of applications and network connectivity.
+
+PROCEDURE
+
+1. Check Firewall Status
+
+   1. Open Control Panel → System and Security → Windows Defender Firewall.
+   2. Observe the firewall status (On/Off) for different network profiles (Private, Public).
+
+2. Enable/Disable the Firewall
+
+   1. Click Turn Windows Defender Firewall on or off.
+   2. Disable the firewall temporarily and try accessing the internet or a network resource.
+   3. Re-enable it afterward.
+
+3. Create an Inbound Rule
+
+   1. Open Windows Defender Firewall with Advanced Security.
+   2. Go to Inbound Rules → New Rule.
+   3. Choose Program and browse to an installed application (e.g., Chrome).
+   4. Select Allow the connection, specify profiles, and finish setup.
+
+4. Test Application Behavior
+
+   1. Run the selected application.
+   2. Observe whether it can access the internet or local network depending on the rule.
+
+5. Block an Application
+
+   1. Repeat the same steps as above but choose Block the connection.
+   2. Observe changes in connectivity.
+
+6. Reset Rules
+
+   1. Go to Action → Restore Default Policy to reset all custom rules.
+
+OBSERVATION
+
+Scenario                          Application Behavior
+
+Firewall Enabled + Allow Rule     Application runs normally with full connectivity.
+
+Firewall Enabled + Block Rule     Application is blocked from accessing the network.
+
+Firewall Disabled                 No restrictions; all applications have connectivity.
+
+• Public networks apply stricter rules.
+• Custom rules give precise control over app behavior and ports.
+
+RESULT
+
+The experiment successfully demonstrates how Windows Defender Firewall controls the flow of network traffic. Through rule management, users can enhance their system’s security by allowing only trusted applications and blocking potential threats.
+
+OUTPUT
+
+[Original screenshot on page 3]
+
+
+==================================================
+EXPERIMENT - 2
+SECRET DATA EMBEDDING USING XIAO STEGANOGRAPHY
+==================================================
+
+AIM
+
+To study the process of embedding and retrieving secret data using the steganography tool Xiao Steganography, and evaluate its effectiveness in concealing information inside image files.
+
+DESCRIPTION
+
+Steganography is the practice of hiding secret data within ordinary files to avoid detection.
+
+Xiao Steganography is a software utility that enables users to hide text or file data inside BMP images or WAV audio files using encryption. Unlike cryptography, which focuses on scrambling data, steganography emphasizes disguising its existence altogether.
+
+This experiment uses Xiao Steganography to embed a text file into a BMP image and then extract it, demonstrating how covert data transmission can work in practice.
+
+PROCEDURE
+
+1. Install Xiao Steganography
+
+   1. Download Xiao Steganography from Softpedia.
+   2. Install and launch the application.
+
+2. Select Cover File
+
+   1. Choose a BMP image file that will act as the carrier of hidden data.
+
+3. Prepare Secret File
+
+   1. Create a simple text file named message.txt containing the message you want to hide.
+
+4. Embed the Secret File
+
+   1. In Xiao Steganography, select the BMP image as the cover file.
+   2. Choose the message.txt file as the hidden file.
+   3. Select an encryption algorithm (e.g., RC2, TripleDES).
+   4. Enter a secure password to protect the hidden data.
+   5. Save the output as a new stego-image file.
+
+5. Verify Stego Image
+
+   1. Open the stego-image in a standard image viewer to confirm it appears unchanged.
+
+6. Extract the Hidden File
+
+   1. Open Xiao Steganography and load the stego-image.
+   2. Enter the correct password and extract the message.txt file.
+   3. Verify its contents.
+
+OBSERVATION
+
+Action                            Result
+
+Image before embedding            Normal BMP image
+
+Image after embedding             Visually unchanged
+
+File extraction with password     Hidden file successfully retrieved
+
+File extraction without password  Extraction failed due to encryption
+
+• File size of the stego-image slightly increases due to embedded data.
+• Visual inspection alone cannot detect hidden content.
+
+RESULT
+
+The experiment successfully demonstrates how steganography using Xiao Steganography can hide and securely retrieve a secret file within an image. The process ensures that the carrier file remains visually unaltered while protecting the concealed data using encryption.
+
+
+==================================================
+EXPERIMENT 3
+WEBSITE MIRRORING USING HTTRACK
+==================================================
+
+AIM
+
+To demonstrate how HTTrack can be used to download and mirror a website locally for offline access and analysis.
+
+DESCRIPTION
+
+HTTrack is an open-source offline browser utility that enables users to download entire websites to a local directory. It replicates the original site's structure, including HTML, images, CSS, and other media files. This experiment shows how HTTrack can be used to create a local copy of a website and access it without an internet connection.
+
+PROCEDURE
+
+1. Install HTTrack
+
+   1. Download HTTrack from the official website.
+   2. Install the software and launch WinHTTrack (for Windows users).
+
+2. Create a new project
+
+   1. Click Next to start a new project.
+   2. Enter a project name (e.g., myWebsiteCopy) and select a base path to save files.
+
+3. Enter website URL
+
+   1. Input the URL of the website to be mirrored (e.g., https://example.com).
+   2. Multiple URLs can be added if needed.
+
+4. Configure options
+
+   1. Select Download website(s) as the action.
+   2. Optionally set filters to include or exclude certain file types.
+
+5. Start mirroring
+
+   1. Click Finish to begin the download process.
+   2. HTTrack will crawl the website and save its content locally.
+
+6. View the mirrored site
+
+   1. Open the saved directory.
+   2. Double-click index.html to browse the site offline using a web browser.
+
+OUTPUT
+
+A fully functional offline copy of the selected website is created in the specified directory. The site can be accessed without an internet connection, and its structure and content remain intact for review or analysis.
+
+
+==================================================
+EXPERIMENT 4
+NETWORK SCANNING USING IP SCANNER
+==================================================
+
+AIM
+
+To demonstrate how an IP scanner tool can be used to detect active devices on a local network and analyze their connectivity status.
+
+DESCRIPTION
+
+An IP scanner is a network utility that scans a range of IP addresses to identify which hosts are active and reachable. It helps network administrators monitor devices, detect unauthorized access, and troubleshoot connectivity issues. This experiment uses an IP scanner (such as Angry IP Scanner or Advanced IP Scanner) to scan a subnet and record the status of connected devices.
+
+PROCEDURE
+
+1. Install the IP scanner tool
+
+   1. Download and install Angry IP Scanner or Advanced IP Scanner from their official websites.
+
+2. Launch the application
+
+   1. Open the IP scanner tool on your computer.
+
+3. Set the IP range
+
+   1. Enter the IP address range to be scanned (e.g., 192.168.0.1 to 192.168.0.254).
+
+4. Start the scan
+
+   1. Click the "Start" or "Scan" button to begin scanning the network.
+
+5. Observe the results
+
+   1. Wait for the scan to complete. The tool will display a list of active IP addresses, host names, MAC addresses, and open ports.
+
+6. Save or export the results
+
+   1. Use the export feature to save the scan results to a file for documentation or analysis.
+
+OUTPUT
+
+The IP scanner successfully identifies all active devices within the specified IP range. The output includes IP addresses, host names, MAC addresses, and port status. This data can be used to verify network health, detect unknown devices, and assist in network troubleshooting.
+
+
+==================================================
+EXPERIMENT 5
+NETWORK SCANNING AND PORT DISCOVERY USING NMAP
+==================================================
+
+AIM
+
+To perform network scanning using Nmap in order to discover active hosts, open ports, and running services on a target system or network.
+
+DESCRIPTION
+
+Nmap is a command-line tool used by network administrators and cyber security professionals to map networks, identify devices, and detect vulnerabilities. It can perform host discovery, port scanning, service detection, and OS fingerprinting. This experiment demonstrates how to use Nmap to analyze a target IP or subnet and interpret the results for network diagnostics and security assessment.
+
+PROCEDURE
+
+1. Install Nmap
+
+   • Download and install Nmap from https://nmap.org.
+   • On Windows, use the installer; on Linux/macOS, install via package manager (sudo apt install nmap or brew install nmap).
+
+2. Open Terminal or Command Prompt
+
+   • Launch your terminal or command prompt with administrative privileges.
+
+3. Basic Host Discovery
+
+   • Run:
+
+   nmap -sn 192.168.1.0/24
+
+   • This performs a ping scan to identify live hosts in the subnet.
+
+4. Port Scanning
+
+   • Run:
+
+   nmap -p 1-1000 192.168.1.10
+
+   • Scans ports 1 to 1000 on the target IP to find open ports.
+
+5. Service and Version Detection
+
+   • Run:
+
+   nmap -sV 192.168.1.10
+
+   • Detects services running on open ports and their versions.
+
+6. Operating System Detection
+
+   • Run:
+
+   nmap -O 192.168.1.10
+
+   • Attempts to identify the operating system of the target.
+
+7. Aggressive Scan (Optional)
+
+   • Run:
+
+   nmap -A 192.168.1.10
+
+   • Combines OS detection, version detection, script scanning, and traceroute.
+
+8. Document Results
+
+   • Save output using:
+
+   nmap -oN scan_results.txt 192.168.1.10
+
+OBSERVATIONS
+
+Target IP       Open Ports    Services       OS Detected       Notes
+
+192.168.1.10    22, 80, 443   SSH, HTTP,     Linux (Ubuntu)    Web server and
+                              HTTPS                            SSH active
+
+192.168.1.15    139, 445      SMB            Windows 10        File sharing enabled
+
+192.168.1.20    None          --             --                Host unreachable
+                                                                 or offline
+
+RESULT
+
+Nmap successfully scanned the target network and revealed active hosts, open ports, running services, and operating systems. The experiment demonstrated how Nmap can be used for network mapping, vulnerability assessment, and security auditing. It is a vital tool for ethical hacking and system administration.
+
+
+==================================================
+EXPERIMENT 6
+PACKET ANALYSIS USING WIRESHARK
+==================================================
+
+AIM
+
+To capture and analyze network packets using Wireshark in order to understand the structure and behavior of network protocols such as HTTP, TCP, and DNS.
+
+DESCRIPTION
+
+Wireshark is a powerful tool used to monitor and inspect data packets transmitted over a network. This experiment involves capturing live traffic, filtering specific protocols, and analyzing packet details to understand how data is transmitted between devices.
+
+PROCEDURE
+
+1. Install Wireshark
+
+   • Download and install Wireshark from https://www.wireshark.org.
+   • Ensure you have administrative privileges to capture packets.
+
+2. Start Packet Capture
+
+   • Launch Wireshark.
+   • Select the active network interface (e.g., Ethernet or Wi-Fi).
+   • Click on the blue shark fin icon to start capturing packets.
+
+3. Generate Network Traffic
+
+   • Open a web browser and visit a few websites (e.g., https://example.com).
+   • Perform actions like DNS lookups, file downloads, or login attempts to generate diverse traffic.
+
+4. Apply Filters
+
+   • Use filters to isolate specific protocols:
+
+      http – to view HTTP traffic
+
+      tcp – to view TCP packets
+
+      dns – to view DNS queries
+
+   • Enter the filter in the top bar and press Enter.
+
+5. Analyze Packets
+
+   • Click on individual packets to view detailed information.
+   • Expand sections like Ethernet, IP, TCP/UDP, and application layer protocols.
+   • Note source and destination IPs, ports, flags, and payload data.
+
+6. Stop Capture
+
+   • Click the red square icon to stop capturing.
+   • Save the capture file for future reference (File > Save As).
+
+OBSERVATIONS
+
+Protocol       Observation
+
+HTTP           Requests and responses between browser and web server,
+               including headers and status codes.
+
+TCP            Three-way handshake (SYN, SYN-ACK, ACK), sequence
+               numbers, retransmissions.
+
+DNS            Query and response packets showing domain name resolution.
+
+IP             Source and destination IP addresses, TTL values.
+
+Ethernet       MAC addresses of communicating devices.
+
+RESULT
+
+Wireshark successfully captured and displayed network packets in real time. The analysis revealed the structure of various protocols and how data flows across the network. This experiment demonstrated how Wireshark can be used for troubleshooting, security analysis, and learning about network communication.
+
+
+==================================================
+EXPERIMENT 7
+WEB APPLICATION VULNERABILITY ANALYSIS USING BURP SUITE
+==================================================
+
+AIM
+
+To intercept, analyze, and manipulate HTTP/S requests and responses using Burp Suite in order to identify potential vulnerabilities in a web application.
+
+DESCRIPTION
+
+Burp Suite is a comprehensive platform used by security professionals to test the security of web applications. It includes tools for intercepting traffic, scanning for vulnerabilities, and manipulating requests. This experiment demonstrates how to use Burp Suite to analyze web traffic and detect issues such as insecure cookies, input validation flaws, and authentication weaknesses.
+
+PROCEDURE
+
+1. Install Burp Suite
+
+   • Download Burp Suite Community Edition from https://portswigger.net/burp.
+   • Install and launch the application.
+
+2. Configure Browser Proxy
+
+   • Set your browser to use Burp Suite's proxy:
+
+      Proxy address: 127.0.0.1
+
+      Port: 8080
+
+   • Install Burp's CA certificate to avoid HTTPS warnings.
+
+3. Start Intercepting Traffic
+
+   • In Burp Suite, go to the Proxy tab and ensure Intercept is on.
+   • Visit a test website (e.g., http://testphp.vulnweb.com) in your browser.
+
+4. Analyze Requests
+
+   • Observe intercepted HTTP requests.
+   • Forward or drop requests as needed.
+   • Send interesting requests to Repeater for manual testing.
+
+5. Scan for Vulnerabilities
+
+   • Right-click a request and select "Scan" (available in Burp Suite Professional).
+   • In Community Edition, manually test for issues like:
+
+      SQL injection
+
+      Cross-site scripting (XSS)
+
+      Broken authentication
+
+6. Use Repeater and Intruder
+
+   • Repeater: Modify and resend requests to test server responses.
+   • Intruder: Automate attacks like brute force or fuzzing (limited in Community Edition).
+
+7. Review Findings
+
+   • Check the Target and HTTP history tabs for a full log of interactions.
+   • Note any unusual responses, error messages, or security headers.
+
+OBSERVATIONS
+
+Test Action                 Server Response                  Potential Issue
+
+Removed input validation    Server returned SQL error        Possible SQL Injection
+
+Injected <script> tag       Reflected in response             XSS vulnerability
+
+Modified session cookie     Access granted without login     Broken authentication
+
+Checked headers             Missing X-Frame-Options,         Weak security
+                            Content-Security-Policy          headers
+
+RESULT
+
+Burp Suite successfully intercepted and analyzed HTTP/S traffic between the browser and the web server. Manual testing revealed potential vulnerabilities such as XSS and weak authentication mechanisms. This experiment demonstrated how Burp Suite can be used for ethical hacking, penetration testing, and securing web applications.
+
+
+==================================================
+END OF LAB MANUAL
+==================================================
